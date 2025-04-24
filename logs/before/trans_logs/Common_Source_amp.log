@@ -1,0 +1,29 @@
+Circuit: * C:\Users\mohammad asfraf\Downloads\Common_Source_amp.asc
+
+Direct Newton iteration for .op point succeeded.
+
+p_mos: AVG(v(n004))=2.71836 FROM 0 TO 0.01
+p_r1: AVG(v(n001,n003))=8.57169 FROM 0 TO 0.01
+p_r2: AVG(v(n003))=3.42831 FROM 0 TO 0.01
+p_r3: AVG(v(n001,n002))=6.79404 FROM 0 TO 0.01
+p_r4: AVG(v(n004))=2.71836 FROM 0 TO 0.01
+p_r5: AVG(v(out))=0.00189443 FROM 0 TO 0.01
+
+
+Date: Sat Mar 01 23:28:54 2025
+Total elapsed time: 0.070 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 3142
+traniter = 3127
+tranpoints = 1042
+accept = 1042
+rejected = 0
+matrix size = 14
+fillins = 5
+solver = Normal
+Matrix Compiler1: 884 bytes object code size  0.2/0.1/[0.1]
+Matrix Compiler2: 1.08 KB object code size  0.1/0.1/[0.1]
+

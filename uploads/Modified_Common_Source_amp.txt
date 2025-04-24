@@ -1,0 +1,31 @@
+* C:\Users\mohammad asfraf\Downloads\Common_Source_amp.asc
+R1 N001 N003 30k
+R2 N003 0 5k
+R3 N001 N002 2k
+C2 N003 In 22µ
+V1 P001 0 SINE(0 100m 1k 0 0 0 0)
+V2 N001 0 15
+C1 out N002 2.2µ
+C3 0 N004 1µ
+R4 N004 0 1k
+R5 out 0 2k
+M2 N002 N003 N004 N004 AO6408
+V3 In P001 AC 1
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\mohammad asfraf\OneDrive\Documents\LTspiceXVII\lib\cmp\standard.mos
+;tran 10m
+* Common Source Amplifier
+* Vout
+* Vin
+.ac dec 10 10 100
+.meas AC Vgain MAX V(out)/V(In)
+.meas AC Gain_dB param 20*log10(Vgain)
+.meas TRAN P_MOS AVG V(N004) * I(M2)
+.meas TRAN P_R1 AVG V(N001,N003) * I(R1)
+.meas TRAN P_R2 AVG V(N003) * I(R2)
+.meas TRAN P_R3 AVG V(N001,N002) * I(R3)
+.meas TRAN P_R4 AVG V(N004) * I(R4)
+.meas TRAN P_R5 AVG V(out) * I(R5)
+.backanno
+.end

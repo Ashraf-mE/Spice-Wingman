@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Optimized Circuit Design</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+      .container { text-align: center; margin-top: 50px; }
+      .upload-container { margin: 20px; padding: 20px; border: 2px dashed #007BFF; cursor: pointer; }
+      .btn { padding: 10px 20px; background-color: #007BFF; color: white; border: none; cursor: pointer; }
+      .result { margin-top: 20px; font-size: 18px; font-weight: bold; color: #333; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1><i class="fas fa-microchip"></i> AI-Optimized Circuit Design</h1>
+        <p>Enhance your circuits with intelligent optimization</p>
+    </div>
+
+    <div class="main-content">
+        <!-- File Upload Section -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label class="label">
+                <i class="fas fa-upload"></i> Upload Netlist (.cir/.net)
+            </label>
+
+            <div class="upload-container">
+                <input type="file" name="file" id="fileInput" accept=".cir,.net" required>
+            </div>
+
+            <button type="submit" class="btn">Upload & Optimize</button>
+        </form>
+        
+        <!-- Gain Display Section -->
+        {% if gain_db_before or gain_db_after %}
+        <div class="result">
+            <p>Gain Before Optimization (dB): <strong>{{ gain_db_before }}</strong></p>
+            <p>Gain After Optimization (dB): <strong>{{ gain_db_after }}</strong></p>
+        </div>
+        {% endif %}
+
+        <!-- p_r5 Display Section -->
+        {% if p_r5_before or p_r5_after %}
+        <div class="result">
+            <p>p_r5 (AVG(v(out))) Before Optimization: <strong>{{ p_r5_before }}</strong></p>
+            <p>p_r5 (AVG(v(out))) After Optimization: <strong>{{ p_r5_after }}</strong></p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
